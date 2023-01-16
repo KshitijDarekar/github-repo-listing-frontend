@@ -9,6 +9,7 @@ import { GithubService } from './../../services/github.service';
 export class GithubAppComponent implements OnInit {
   public searchText!: string;
   public profileLoader: boolean = false;
+  public validUser: boolean = true;
   public repoLoader: boolean = false;
   public userProfileData: any = {};
   public userProfileRepo: any[] = [];
@@ -45,9 +46,11 @@ export class GithubAppComponent implements OnInit {
       (data) => {
         this.userProfileData = data;
         this.profileLoader = false;
+        this.validUser = true;
       },
       (err: any) => {
         this.userProfileData = {};
+        this.validUser = false;
       }
     );
   }

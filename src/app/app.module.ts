@@ -14,6 +14,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { NgxPaginationModule } from 'ngx-pagination';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     GithubProfileDetailsComponent,
     UserRepositoryComponent,
     SkeletonLoaderComponent,
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,

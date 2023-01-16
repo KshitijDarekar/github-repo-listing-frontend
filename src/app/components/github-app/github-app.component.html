@@ -29,11 +29,17 @@
       </div>
     </div>
   </div>
-  <div class="row mt-3" *ngIf="(userProfileData | keyvalue)?.length">
-    <div class="col">
+  <div class="row mt-3">
+    <div class="col" *ngIf="(userProfileData | keyvalue)?.length">
       <app-github-profile [profile]="userProfileData"></app-github-profile>
     </div>
+    <!-- <div class="col" *ngIf="!validUser"> -->
+      <!-- <h4>user is not authorized to access this resource</h4> -->
+  <app-error-page *ngIf="!validUser"></app-error-page>
+
+    <!-- </div> -->
   </div>
+
   <div class="row mt-3" *ngIf="userProfileRepo.length > 0">
     <div class="col">
       <h4>Github Repositories</h4>
@@ -44,7 +50,7 @@
       ></app-user-repository>
     </div>
   </div>
-  <div class="row" *ngIf="profileLoader">
+  <div class="row" *ngIf="profileLoader && validUser">
     <div class="col-md-3">
       <app-skeleton-loader
         appearance="circle"
@@ -59,7 +65,7 @@
       ></app-skeleton-loader>
     </div>
   </div>
-  <div class="row mt-3" *ngIf="repoLoader">
+  <div class="row mt-3" *ngIf="repoLoader && validUser">
     <div class="col">
       <div>
         <app-skeleton-loader

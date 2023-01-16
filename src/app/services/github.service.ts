@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class GithubService {
-  private BASE_URL = environment.BASE_URL;
+  private BASE_URL = 'https://github-repo-listing-backend.herokuapp.com/api/';
 
   username: string | undefined;
   constructor(private httpClient: HttpClient) {}
